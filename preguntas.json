@@ -1,0 +1,272 @@
+[
+    {
+        "pregunta": "¿Cuál es la capital de Francia?",
+        "opciones": [
+            "París",
+            "Londres",
+            "Berlín",
+            "Roma"
+        ],
+        "respuesta_correcta": "París"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de España?",
+        "opciones": [
+            "Madrid",
+            "Barcelona",
+            "Valencia",
+            "Bilbao"
+        ],
+        "respuesta_correcta": "Madrid"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Italia?",
+        "opciones": [
+            "Roma",
+            "Florencia",
+            "San Sosti",
+            "Napoles"
+        ],
+        "respuesta_correcta": "Roma"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Alemania?",
+        "opciones": [
+            "Berlín",
+            "Munich",
+            "Dortmund",
+            "Hamburgo"
+        ],
+        "respuesta_correcta": "Berlín"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Argentina?",
+        "opciones": [
+            "Buenos Aires",
+            "La Plata",
+            "Rawson",
+            "Cordoba"
+        ],
+        "respuesta_correcta": "Buenos Aires"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Brasil?",
+        "opciones": [
+            "Brasilia",
+            "Rio de Janeiro",
+            "Belho Horizonte",
+            "Sao Paulo"
+        ],
+        "respuesta_correcta": "Brasilia"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Estados Unidos?",
+        "opciones": [
+            "Washington D.C.",
+            "New York",
+            "Los Nageles",
+            "Las Vegas"
+        ],
+        "respuesta_correcta": "Washington D.C."
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Canadá?",
+        "opciones": [
+            "Ottawa",
+            "Vancouver",
+            "Ontario",
+            "Alberta"
+        ],
+        "respuesta_correcta": "Ottawa"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de México?",
+        "opciones": [
+            "Ciudad de México",
+            "Cancun",
+            "Sinaloa",
+            "Queretaro"
+        ],
+        "respuesta_correcta": "Ciudad de México"
+    },
+    {
+        "pregunta": "¿Cuál es la capital de Reino Unido?",
+        "opciones": [
+            "Londres",
+            "Machester",
+            "Liverpool",
+            "Glasgow"
+        ],
+        "respuesta_correcta": "Londres"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de China?",
+        "opciones": [
+            "Shanghái",
+            "Beijing",
+            "Xi Ying Ping",
+            "Hong Kong"
+        ],
+        "respuesta_correcta": "Shanghái"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de India?",
+        "opciones": [
+            "Bombay",
+            "Chennai",
+            "Cochin",
+            "Nueva Delhi"
+        ],
+        "respuesta_correcta": "Bombay"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Rusia?",
+        "opciones": [
+            "Moscú",
+            "St. Petersburgo",
+            "Omsk",
+            "Kazan"
+        ],
+        "respuesta_correcta": "Moscú"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Japón?",
+        "opciones": [
+            "Tokio",
+            "Nagasaki",
+            "Hiroshima",
+            "Kyoto"
+        ],
+        "respuesta_correcta": "Tokio"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Corea del Sur?",
+        "opciones": [
+            "Seúl",
+            "Incheon",
+            "Jeju",
+            "Pohang"
+        ],
+        "respuesta_correcta": "Seúl"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Australia?",
+        "opciones": [
+            "Sídney",
+            "Camberra",
+            "Melbourne",
+            "Perth"
+        ],
+        "respuesta_correcta": "Sídney"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Pakistán?",
+        "opciones": [
+            "Karachi",
+            "Nueva York",
+            "Sao Paulo",
+            "Delhi"
+        ],
+        "respuesta_correcta": "Karachi"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Bangladesh?",
+        "opciones": [
+            "Dhaka",
+            "Nueva York",
+            "Sao Paulo",
+            "Delhi"
+        ],
+        "respuesta_correcta": "Dhaka"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Indonesia?",
+        "opciones": [
+            "Yakarta",
+            "Nueva York",
+            "Sao Paulo",
+            "Delhi"
+        ],
+        "respuesta_correcta": "Yakarta"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más poblada de Nigeria?",
+        "opciones": [
+            "Lagos",
+            "Abuja",
+            "Yaunde",
+            "Ciudad del Cabo"
+        ],
+        "respuesta_correcta": "Lagos"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Perú?",
+        "opciones": [
+            "Cusco",
+            "Lima",
+            "Arequipa",
+            "Trujillo"
+        ],
+        "respuesta_correcta": "Cusco"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de México?",
+        "opciones": [
+            "Ciudad de México",
+            "Cancun",
+            "Sinaloa",
+            "Ciudad Juarez"
+        ],
+        "respuesta_correcta": "Ciudad de México"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Bolivia?",
+        "opciones": [
+            "La Paz",
+            "Sucre",
+            "Cochabamba",
+            "Tarija"
+        ],
+        "respuesta_correcta": "La Paz"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Ecuador?",
+        "opciones": [
+            "Quito",
+            "guayaquil",
+            "Cuenca",
+            "Bogotá"
+        ],
+        "respuesta_correcta": "Quito"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Chile?",
+        "opciones": [
+            "Santiago",
+            "Viña del Mar",
+            "Antofagasta",
+            "Ñuñoa"
+        ],
+        "respuesta_correcta": "Santiago"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Colombia?",
+        "opciones": [
+            "Bogotá",
+            "Medellin",
+            "Barranquilla",
+            "Cartagena"
+        ],
+        "respuesta_correcta": "Bogotá"
+    },
+    {
+        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Argentina?",
+        "opciones": [
+            "La Quiaca",
+            "Mendoza",
+            "San Juan",
+            "San Fernando del Valle de Catamarca"
+        ],
+        "respuesta_correcta": "La Quiaca"
+    }
+]
