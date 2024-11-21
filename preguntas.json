@@ -1,272 +1,202 @@
 [
     {
-        "pregunta": "¿Cuál es la capital de Francia?",
+        "pregunta": "¿Cuál es el planeta más grande del sistema solar?",
         "opciones": [
-            "París",
-            "Londres",
-            "Berlín",
-            "Roma"
+            "Saturno",
+            "Neptuno",
+            "Júpiter",
+            "Urano"
         ],
-        "respuesta_correcta": "París"
+        "respuesta_correcta": "Júpiter"
     },
     {
-        "pregunta": "¿Cuál es la capital de España?",
+        "pregunta": "¿Quién pintó la Mona Lisa?",
         "opciones": [
-            "Madrid",
-            "Barcelona",
-            "Valencia",
-            "Bilbao"
+            "Pablo Picasso",
+            "Vincent van Gogh",
+            "Leonardo da Vinci",
+            "Miguel Ángel"
         ],
-        "respuesta_correcta": "Madrid"
+        "respuesta_correcta": "Leonardo da Vinci"
     },
     {
-        "pregunta": "¿Cuál es la capital de Italia?",
+        "pregunta": "¿Cuál es el río más largo del mundo?",
         "opciones": [
-            "Roma",
-            "Florencia",
-            "San Sosti",
-            "Napoles"
+            "Río Nilo",
+            "Río Yangtsé",
+            "Río Amazonas",
+            "Río Misisipi"
         ],
-        "respuesta_correcta": "Roma"
+        "respuesta_correcta": "Río Amazonas"
     },
     {
-        "pregunta": "¿Cuál es la capital de Alemania?",
+        "pregunta": "¿En qué año comenzó la Segunda Guerra Mundial?",
         "opciones": [
-            "Berlín",
-            "Munich",
-            "Dortmund",
-            "Hamburgo"
+            "1941",
+            "1937",
+            "1939",
+            "1945"
         ],
-        "respuesta_correcta": "Berlín"
+        "respuesta_correcta": "1939"
     },
     {
-        "pregunta": "¿Cuál es la capital de Argentina?",
+        "pregunta": "¿Cuál es la capital de Japón?",
         "opciones": [
-            "Buenos Aires",
-            "La Plata",
-            "Rawson",
-            "Cordoba"
-        ],
-        "respuesta_correcta": "Buenos Aires"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Brasil?",
-        "opciones": [
-            "Brasilia",
-            "Rio de Janeiro",
-            "Belho Horizonte",
-            "Sao Paulo"
-        ],
-        "respuesta_correcta": "Brasilia"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Estados Unidos?",
-        "opciones": [
-            "Washington D.C.",
-            "New York",
-            "Los Nageles",
-            "Las Vegas"
-        ],
-        "respuesta_correcta": "Washington D.C."
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Canadá?",
-        "opciones": [
-            "Ottawa",
-            "Vancouver",
-            "Ontario",
-            "Alberta"
-        ],
-        "respuesta_correcta": "Ottawa"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de México?",
-        "opciones": [
-            "Ciudad de México",
-            "Cancun",
-            "Sinaloa",
-            "Queretaro"
-        ],
-        "respuesta_correcta": "Ciudad de México"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Reino Unido?",
-        "opciones": [
-            "Londres",
-            "Machester",
-            "Liverpool",
-            "Glasgow"
-        ],
-        "respuesta_correcta": "Londres"
-    },
-    {
-        "pregunta": "¿Cuál es la ciudad más poblada de China?",
-        "opciones": [
-            "Shanghái",
-            "Beijing",
-            "Xi Ying Ping",
-            "Hong Kong"
-        ],
-        "respuesta_correcta": "Shanghái"
-    },
-    {
-        "pregunta": "¿Cuál es la ciudad más poblada de India?",
-        "opciones": [
-            "Bombay",
-            "Chennai",
-            "Cochin",
-            "Nueva Delhi"
-        ],
-        "respuesta_correcta": "Bombay"
-    },
-    {
-        "pregunta": "¿Cuál es la ciudad más poblada de Rusia?",
-        "opciones": [
-            "Moscú",
-            "St. Petersburgo",
-            "Omsk",
-            "Kazan"
-        ],
-        "respuesta_correcta": "Moscú"
-    },
-    {
-        "pregunta": "¿Cuál es la ciudad más poblada de Japón?",
-        "opciones": [
+            "Kioto",
+            "Osaka",
             "Tokio",
-            "Nagasaki",
-            "Hiroshima",
-            "Kyoto"
+            "Hiroshima"
         ],
         "respuesta_correcta": "Tokio"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Corea del Sur?",
+        "pregunta": "¿Qué elemento químico tiene como símbolo 'O'?",
         "opciones": [
-            "Seúl",
-            "Incheon",
-            "Jeju",
-            "Pohang"
+            "Oro",
+            "Osmio",
+            "Óxido",
+            "Oxígeno"
         ],
-        "respuesta_correcta": "Seúl"
+        "respuesta_correcta": "Oxígeno"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Australia?",
+        "pregunta": "¿Qué escritor creó el personaje de Sherlock Holmes?",
         "opciones": [
-            "Sídney",
-            "Camberra",
-            "Melbourne",
-            "Perth"
+            "Agatha Christie",
+            "Arthur Conan Doyle",
+            "Jules Verne",
+            "Charles Dickens"
         ],
-        "respuesta_correcta": "Sídney"
+        "respuesta_correcta": "Arthur Conan Doyle"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Pakistán?",
+        "pregunta": "¿Cuál es el animal terrestre más rápido del mundo?",
         "opciones": [
-            "Karachi",
-            "Nueva York",
-            "Sao Paulo",
-            "Delhi"
+            "León",
+            "Antílope",
+            "Guepardo",
+            "Tigre"
         ],
-        "respuesta_correcta": "Karachi"
+        "respuesta_correcta": "Guepardo"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Bangladesh?",
+        "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
         "opciones": [
-            "Dhaka",
-            "Nueva York",
-            "Sao Paulo",
-            "Delhi"
+            "Asia",
+            "América",
+            "Australia",
+            "África"
         ],
-        "respuesta_correcta": "Dhaka"
+        "respuesta_correcta": "África"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Indonesia?",
+        "pregunta": "¿En qué año se lanzó la primera película de Harry Potter?",
         "opciones": [
-            "Yakarta",
-            "Nueva York",
-            "Sao Paulo",
-            "Delhi"
+            "1999",
+            "2003",
+            "2001",
+            "2005"
         ],
-        "respuesta_correcta": "Yakarta"
+        "respuesta_correcta": "2001"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más poblada de Nigeria?",
+        "pregunta": "¿Cuál es el idioma más hablado en el mundo?",
         "opciones": [
-            "Lagos",
-            "Abuja",
-            "Yaunde",
-            "Ciudad del Cabo"
+            "Inglés",
+            "Español",
+            "Chino mandarín",
+            "Hindi"
         ],
-        "respuesta_correcta": "Lagos"
+        "respuesta_correcta": "Chino mandarín"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Perú?",
+        "pregunta": "¿Qué instrumento mide la presión atmosférica?",
         "opciones": [
-            "Cusco",
-            "Lima",
-            "Arequipa",
-            "Trujillo"
+            "Termómetro",
+            "Higrómetro",
+            "Barómetro",
+            "Anemómetro"
         ],
-        "respuesta_correcta": "Cusco"
+        "respuesta_correcta": "Barómetro"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de México?",
+        "pregunta": "¿Qué país ganó la Copa Mundial de Fútbol en 2018?",
         "opciones": [
-            "Ciudad de México",
-            "Cancun",
-            "Sinaloa",
-            "Ciudad Juarez"
+            "Croacia",
+            "Alemania",
+            "Francia",
+            "Brasil"
         ],
-        "respuesta_correcta": "Ciudad de México"
+        "respuesta_correcta": "Francia"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Bolivia?",
+        "pregunta": "¿Qué especie extinguida era conocida como el ave más grande que ha existido?",
         "opciones": [
-            "La Paz",
-            "Sucre",
-            "Cochabamba",
-            "Tarija"
+            "Dodo",
+            "Archaeopteryx",
+            "Aepyornis",
+            "Pelecanimimus"
         ],
-        "respuesta_correcta": "La Paz"
+        "respuesta_correcta": "Aepyornis"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Ecuador?",
+        "pregunta": "¿Cuál es el símbolo químico del oro?",
         "opciones": [
-            "Quito",
-            "guayaquil",
-            "Cuenca",
-            "Bogotá"
+            "Ag",
+            "Fe",
+            "Au",
+            "Pb"
         ],
-        "respuesta_correcta": "Quito"
+        "respuesta_correcta": "Au"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Chile?",
+        "pregunta": "¿Qué escritor argentino ganó el Premio Cervantes en 1979?",
         "opciones": [
-            "Santiago",
-            "Viña del Mar",
-            "Antofagasta",
-            "Ñuñoa"
+            "Adolfo Bioy Casares",
+            "Jorge Luis Borges",
+            "Julio Cortázar",
+            "Manuel Puig"
         ],
-        "respuesta_correcta": "Santiago"
+        "respuesta_correcta": "Jorge Luis Borges"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Colombia?",
+        "pregunta": "¿Qué famoso físico desarrolló la teoría de la relatividad?",
         "opciones": [
-            "Bogotá",
-            "Medellin",
-            "Barranquilla",
-            "Cartagena"
+            "Isaac Newton",
+            "Galileo Galilei",
+            "Nikola Tesla",
+            "Albert Einstein"
         ],
-        "respuesta_correcta": "Bogotá"
+        "respuesta_correcta": "Albert Einstein"
     },
     {
-        "pregunta": "¿Cuál es la ciudad más alta a nivel del mar de Argentina?",
+        "pregunta": "¿Qué país es conocido como la tierra del sol naciente?",
         "opciones": [
-            "La Quiaca",
-            "Mendoza",
-            "San Juan",
-            "San Fernando del Valle de Catamarca"
+            "Corea del Sur",
+            "Japón",
+            "China",
+            "Filipinas"
         ],
-        "respuesta_correcta": "La Quiaca"
+        "respuesta_correcta": "Japón"
+    },
+    {
+        "pregunta": "¿Cuál es el océano más grande del mundo?",
+        "opciones": [
+            "Océano Atlántico",
+            "Océano Índico",
+            "Océano Ártico",
+            "Océano Pacífico"
+        ],
+        "respuesta_correcta": "Océano Pacífico"
+    },
+    {
+        "pregunta": "¿En qué año se independizó Argentina de España?",
+        "opciones": [
+            "1810",
+            "1820",
+            "1824",
+            "1816"
+        ],
+        "respuesta_correcta": "1816"
     }
 ]
