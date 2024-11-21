@@ -81,11 +81,12 @@ def mezclar_lista(lista_preguntas):
 ejecutando = True
 mezclar_lista(preguntas)
 contador = 0
-bandera_click = False
+# bandera_click = False
 while ejecutando:
-    if bandera_click == True:
-        bandera_click = False
-        pygame.event.clear(pygame.MOUSEBUTTONDOWN) 
+    contador += 1
+    pygame.event.clear(pygame.MOUSEBUTTONDOWN) 
+    # if bandera_click == True:
+    #     bandera_click = False
 
     reloj.tick(30)
     tiempo_actual = 45 - int(time.time() - inicio_tiempo)
@@ -98,11 +99,12 @@ while ejecutando:
             ejecutando = False
         elif evento.type == pygame.MOUSEBUTTONDOWN and not mostrar_respuestas:
             x, y = evento.pos
+            bandera_contador = contador
             for i, opcion in enumerate(preguntas[pregunta_actual]["opciones"]):
-                if 220 <= x <= 820 and 350 + i * 100 <= y <= 400 + i * 100 and bandera_click == False:
-                    bandera_click = True
-                    print(bandera_click)
-                    contador += 1
+                if 220 <= x <= 820 and 350 + i * 100 <= y <= 400 + i * 100:
+                    # bandera_click = True
+                    # print(bandera_click)
+                    
                     opcion_seleccionada = opcion
                     mostrar_respuestas = True
                     sonido_tambores.play()
@@ -141,11 +143,13 @@ while ejecutando:
             else:
                 pantalla.blit(imagen_opcion_default, (220, 350 + i * 100))
             mostrar_texto(opcion, 235, 365 + i * 100, BLANCO)
+    print(contador)
 
 
-    if mostrar_respuestas:
+
+    if mostrar_respuestas and contador == (bandera_contador + 10):
         pygame.time.delay(1000)
-        print(bandera_click)
+        # print(bandera_click)
         mostrar_respuestas = False
         opcion_seleccionada = None
         pregunta_actual += 1
