@@ -50,14 +50,28 @@ ejecutando = True
 mezclar_lista(preguntas)
 contador = 0
 bandera_click = False
+contador_consecutivo = 0
 while ejecutando:
     contador += 1
     pygame.event.clear(pygame.MOUSEBUTTONDOWN) 
     reloj.tick(30)
     tiempo_actual = 45 - int(time.time() - inicio_tiempo)
     if tiempo_actual <= 0:
-        mostrar_respuestas = True
-        tiempo_actual = 0
+        if not mostrar_respuestas:
+        # Si el tiempo llegó a 0 y aún no se han mostrado las respuestas:
+            vidas -= 1  # Se pierde una vida
+            mostrar_respuestas = True
+        else:
+        # Pasar a la siguiente pregunta
+            mostrar_respuestas = False
+            opcion_seleccionada = None
+            pregunta_actual += 1
+            inicio_tiempo = time.time()  # Reinicia el temporizador
+
+        # Si ya no hay más preguntas, regresar al menú
+        if pregunta_actual >= len(preguntas):
+            estado_actual = "menu"
+            inicio_tiempo = None  # Detener el tiempo
 
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -74,10 +88,16 @@ while ejecutando:
                     if opcion_seleccionada == preguntas[pregunta_actual]["respuesta_correcta"]:
                         puntaje += tiempo_actual
                         sonido_cash.play()
+                        contador_consecutivo += 1
                     else:
                         sonido_error.play()
                         puntaje -= 25
                         vidas -= 1
+                        contador_consecutivo = 0
+                    if contador_consecutivo == 5:
+                        vidas += 1
+                        sonido_vida.play()
+                        contador_consecutivo = 0
 
     pantalla.blit(fondo, (0, 0))
     mostrar_texto(f"Puntaje: {puntaje}", 10, 10)

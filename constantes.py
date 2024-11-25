@@ -27,6 +27,8 @@ sonido_tambores = pygame.mixer.Sound("./sound/tambores.mp3")
 sonido_tambores.set_volume(0.2)
 sonido_error = pygame.mixer.Sound("./sound/sonido_error.mp3")
 sonido_error.set_volume(0.2)
+sonido_vida = pygame.mixer.Sound("./sound/sonido_vida.mp3")
+sonido_vida.set_volume(0.2)
 
 #MUSICA
 pygame.mixer.init()
@@ -41,6 +43,7 @@ fondo_pregunta = pygame.image.load("./img/fondo_pregunta.png")
 fondo_pregunta = pygame.transform.scale(fondo_pregunta, (650, 100))  # Ajustar tamaño
 fondo_ranking = pygame.image.load("./img/fondo_ranking.png")
 fondo_ranking = pygame.transform.scale(fondo_ranking, (ANCHO, ALTO))
+fondo_configuracion = pygame.transform.scale(icono, (ANCHO, ALTO))
 imagen_opcion_default = pygame.image.load("./img/opcion_default.png")
 imagen_opcion_correcta = pygame.image.load("./img/opcion_correcta.png")
 imagen_opcion_incorrecta = pygame.image.load("./img/opcion_incorrecta.png")
