@@ -30,6 +30,8 @@ mostrar_respuestas = False
 puntaje = 0
 vidas = 3
 inicio_tiempo = time.time()
+boton_pasar_usado = False
+contador_bonus = 0
 
 # Función para mostrar texto
 def mostrar_texto(texto, x, y, color=BLANCO, fuente=fuente):
@@ -98,8 +100,24 @@ while ejecutando:
                         vidas += 1
                         sonido_vida.play()
                         contador_consecutivo = 0
+                    if contador_consecutivo >= 7:
+                        #TENEMOS QUE BUSCAR UN SONIDO QUE NOS HAGA IDENTIFICAR QUE TENEMOS UN BONUX X2
+                        bonus_sound.play()
+                        puntaje += 25 * 2
+                        contador_bonus += 1 
+                    if contador_bonus == 3:
+                        contador_bonus = 0
+                        #--------------------------ESTO SERIA BOTON SKIP
+                if not boton_pasar_usado and 720 <= x <= 920 and 90 <= y <= 140: #PASAR GDB
+                    boton_pasar_usado = True
+                    pregunta_actual += 1
+                    opcion_seleccionada = None
+                    inicio_tiempo = time.time()
+                    mostrar_respuestas = False
+                    boton_skip.play()
 
     pantalla.blit(fondo, (0, 0))
+    boton_rect = imagen_opcion_default.get_rect(topleft=(650, 500))
     mostrar_texto(f"Puntaje: {puntaje}", 10, 10)
     mostrar_texto(f"Vidas: {vidas}", 10, 50)
 
@@ -125,6 +143,13 @@ while ejecutando:
             else:
                 pantalla.blit(imagen_opcion_default, (220, 350 + i * 100))
             mostrar_texto(opcion, 235, 365 + i * 100, BLANCO)
+        
+        if boton_pasar_usado:
+            pantalla.blit(imagen_boton_skip_incorrecta, (720, 90))
+        else:
+            pantalla.blit(imagen_boton_skip_default, (720, 90))
+        mostrar_texto("Pasar turno", 760, 103, BLANCO)
+
 
 
 

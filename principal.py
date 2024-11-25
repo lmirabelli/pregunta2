@@ -1,50 +1,36 @@
+# principal.py
 import pygame
-from constantes import *
 from menu import *
 from juego_original import *
-from configuracion import *
+# from configuracion import *
 from ranking import *
-from terminado import *
+from constantes import *
 
-#Configuraciones Basicas
 pygame.init()
-pygame.mixer.init()
-pygame.display.set_caption("MI PRIMER JUEGO 114")
-corriendo = True
 reloj = pygame.time.Clock()
-datos_juego = {"puntuacion":0,"vidas":CANTIDAD_VIDAS,"nombre":"","volumen_musica":100}
-ventana_actual = "menu"
-bandera_musica = False
 
-#Ciclo de vida
-while corriendo:
-    reloj.tick(FPS)
-    cola_eventos = pygame.event.get()
+def main():
+    ejecutando = True
+    estado_actual = "menu"
     
-    if ventana_actual == "menu":
-        ventana_actual = mostrar_menu(pantalla,cola_eventos)
-    elif ventana_actual == "juego":
-        if bandera_musica == False:
-            porcentaje_volumen = datos_juego["volumen_musica"] / 100
-            pygame.mixer.music.load("musica.mp3")
-            pygame.mixer.music.set_volume(porcentaje_volumen)
-            pygame.mixer.music.play(-1)
-            bandera_musica = True
-        ventana_actual = mostrar_juego(pantalla,cola_eventos,datos_juego)
-    elif ventana_actual == "configuraciones":
-        ventana_actual = mostrar_configuracion(pantalla,cola_eventos,datos_juego)
-    elif ventana_actual == "rankings":
-        ventana_actual = mostrar_rankings(pantalla,cola_eventos)
-    elif ventana_actual == "terminado":
-        if bandera_musica == True:
-            pygame.mixer.music.stop()
-            bandera_musica = False
-        ventana_actual = mostrar_fin_juego(pantalla,cola_eventos,datos_juego)
-    elif ventana_actual == "salir":
-        corriendo = False
+    while ejecutando:
+        reloj.tick(30)
+        eventos = pygame.event.get()
+        
+        if estado_actual == "menu":
+            estado_actual = mostrar_menu(pantalla, eventos)
+        elif estado_actual == "juego":
+            estado_actual = juego_trivia(pantalla, fondo, fondo_pregunta, fuente, fuente_grande, imagen_opcion_default, imagen_opcion_correcta, imagen_opcion_incorrecta, sonido_tambores, sonido_cash, sonido_error, sonido_vida)
+        # elif estado_actual == "configuraciones":
+        #     mostrar_configuracion(pantalla)
+        #     estado_actual = "menu"
+        elif estado_actual == "rankings":
+            pantalla_ranking(pantalla, "ranking.json")
+            estado_actual = "menu"
+        elif estado_actual == "salir":
+            ejecutando = False
     
-    #Actualizar cambios
-    pygame.display.flip()
+    pygame.quit()
 
-pygame.quit()
-    
+if __name__ == "__main__":
+    main()

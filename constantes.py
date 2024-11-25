@@ -1,5 +1,7 @@
 import pygame
 
+
+
 # Configuración de la pantalla
 ANCHO, ALTO = 1080, 720
 pantalla = pygame.display.set_mode((ANCHO, ALTO))
@@ -21,6 +23,10 @@ fuente_grande = pygame.font.Font(None, 60)
 fuente_pequeña = pygame.font.Font(None, 40)
 
 # Sonidos
+boton_skip = pygame.mixer.Sound("./sound/boton_skip.mp3") #PASAR GDB
+boton_skip.set_volume(1)
+bonus_sound = pygame.mixer.Sound("./sound/bonus_sound.mp3") #PASAR GDB
+bonus_sound.set_volume(1)
 sonido_cash = pygame.mixer.Sound("./sound/cash_sound.mp3")
 sonido_cash.set_volume(1)
 sonido_tambores = pygame.mixer.Sound("./sound/tambores.mp3")
@@ -50,3 +56,7 @@ imagen_opcion_incorrecta = pygame.image.load("./img/opcion_incorrecta.png")
 imagen_opcion_default = pygame.transform.scale(imagen_opcion_default, (600, 50))
 imagen_opcion_correcta = pygame.transform.scale(imagen_opcion_correcta, (600, 50))
 imagen_opcion_incorrecta = pygame.transform.scale(imagen_opcion_incorrecta, (600, 50))
+imagen_boton_skip_default = pygame.image.load("./img/opcion_default.png")
+imagen_boton_skip_default = pygame.transform.scale(imagen_boton_skip_default, (200, 50))
+imagen_boton_skip_incorrecta = pygame.image.load("./img/opcion_incorrecta.png")
+imagen_boton_skip_incorrecta = pygame.transform.scale(imagen_boton_skip_incorrecta, (200, 50))
