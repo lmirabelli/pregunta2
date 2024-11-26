@@ -1,31 +1,42 @@
-[{
-    "jugador": "Simour Skinner",
-    "puntos": 800
-},{
-    "jugador": "Homero Simpson",
-    "puntos": -125
-},{
-    "jugador": "Martin Prince",
-    "puntos": 550
-},{
-    "jugador": "Bart Simpson",
-    "puntos": 50
-},{
-    "jugador": "Ned Flanders",
-    "puntos": 130
-},{
-    "jugador": "Lisa Simpsons",
-    "puntos": 620
-},{
-    "jugador": "Rod Flanders",
-    "puntos": 300
-},{
-    "jugador": "Karl Karlsson",
-    "puntos": 420
-},{
-    "jugador": "Moe Szyslak",
-    "puntos": 30
-},{
-    "jugador": "Lenny Lenard",
-    "puntos": 310
-}]
+[
+    {
+        "jugador": "Simour Skinner",
+        "puntos": 800
+    },
+    {
+        "jugador": "Homero Simpson",
+        "puntos": -125
+    },
+    {
+        "jugador": "Martin Prince",
+        "puntos": 550
+    },
+    {
+        "jugador": "Bart Simpson",
+        "puntos": 50
+    },
+    {
+        "jugador": "Ned Flanders",
+        "puntos": 130
+    },
+    {
+        "jugador": "Lisa Simpsons",
+        "puntos": 620
+    },
+    {
+        "jugador": "Rod Flanders",
+        "puntos": 300
+    },
+    {
+        "jugador": "Karl Karlsson",
+        "puntos": 420
+    },
+    {
+        "jugador": "Moe Szyslak",
+        "puntos": 30
+    },
+    {
+        "jugador": "Lenny Lenard",
+        "puntos": 310
+    }
+]

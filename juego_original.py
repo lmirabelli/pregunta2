@@ -12,7 +12,7 @@ pregunta_actual = 0
 opcion_seleccionada = None
 mostrar_respuestas = False
 puntaje = 0
-vidas = 3
+vidas = 1
 inicio_tiempo = time.time()
 boton_pasar_usado = False
 contador_bonus = 0
@@ -35,11 +35,19 @@ def mezclar_lista(lista_preguntas):
 
 mezclar_lista(preguntas)
 
+iniciado = False
 def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event]) -> str:
-    global pregunta_actual, opcion_seleccionada, mostrar_respuestas, puntaje, vidas, inicio_tiempo, boton_pasar_usado, contador_bonus, contador_consecutivo, bandera_contador, contador
+    global pregunta_actual, opcion_seleccionada, mostrar_respuestas, puntaje, vidas, inicio_tiempo, boton_pasar_usado, contador_bonus, contador_consecutivo, bandera_contador, contador, iniciado
+
+    # Inicializamos el cronómetro solo si es la primera vez que accedemos al juego
+    if not iniciado:
+        inicio_tiempo = time.time()  # Iniciar el tiempo cuando comience el juego
+        iniciado = True  # Cambiar la bandera a True para que no se reinicie en cada ciclo
+
 
     contador += 1
     tiempo_actual = 45 - int(time.time() - inicio_tiempo)
+    
     if tiempo_actual <= 0:
         if not mostrar_respuestas:
             vidas -= 1
@@ -48,7 +56,7 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
             mostrar_respuestas = False
             opcion_seleccionada = None
             pregunta_actual += 1
-            inicio_tiempo = time.time()
+            inicio_tiempo = time.time()  # Reiniciar el tiempo al pasar de pregunta
 
         if pregunta_actual >= len(preguntas):
             return "menu"
@@ -69,6 +77,7 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
                         puntaje += tiempo_actual
                         sonido_cash.play()
                         contador_consecutivo += 1
+                        contador_bonus += 1
                     else:
                         sonido_error.play()
                         puntaje -= 25
@@ -78,24 +87,26 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
                         vidas += 1
                         sonido_vida.play()
                         contador_consecutivo = 0
-                    if contador_consecutivo >= 7:
+                    if contador_bonus == 4:
                         bonus_sound.play()
-                        puntaje += 25 * 2
-                        contador_bonus += 1
-                    if contador_bonus == 3:
+                        puntaje += tiempo_actual * 10
                         contador_bonus = 0
                 if not boton_pasar_usado and 720 <= x <= 920 and 90 <= y <= 140:  # PASAR GDB
                     boton_pasar_usado = True
                     pregunta_actual += 1
                     opcion_seleccionada = None
-                    inicio_tiempo = time.time()
+                    inicio_tiempo = time.time()  # Reiniciar el tiempo al pasar pregunta
                     mostrar_respuestas = False
                     boton_skip.play()
-
-    pantalla.blit(fondo, (0, 0))
-    boton_rect = imagen_opcion_default.get_rect(topleft=(650, 500))
+                if vidas < 1:
+                    return "terminado"
+    if contador_bonus == 3:
+        pantalla.blit(fondo_ranking, (0, 0))
+    else:
+        pantalla.blit(fondo, (0, 0))
+    # boton_rect = imagen_opcion_default.get_rect(topleft=(650, 500))
     mostrar_texto(f"Puntaje: {puntaje}", 10, 10)
-    mostrar_texto(f"Vidas: {vidas} ({contador_consecutivo})", 10, 50)
+    mostrar_texto(f"Vidas: {vidas} ({contador_bonus})", 10, 50)
     mostrar_texto(f"{tiempo_actual}s", 530, 40, color=BLANCO, fuente=fuente_grande)
 
     if pregunta_actual < len(preguntas):
@@ -134,4 +145,3 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
 
     pygame.display.flip()
     return "juego"
-

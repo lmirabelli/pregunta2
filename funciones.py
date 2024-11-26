@@ -8,11 +8,11 @@ from constantes import *
 # PANTALLA MENU -----------------------------------------------------------------------------------
 
 def mostrar_texto_menu(surface, text, pos, font, color=pygame.Color('black')):
-    words = [word.split(' ') for word in text.splitlines()] 
+    palabras = [word.split(' ') for word in text.splitlines()] 
     space = font.size(' ')[0]
     max_width = surface.get_size()[0] 
     x, y = pos
-    for line in words:
+    for line in palabras:
         for word in line:
             word_surface = font.render(word, False, color)
             word_width, word_height = word_surface.get_size()

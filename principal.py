@@ -4,6 +4,7 @@ from menu import *
 from juego_original import *
 from configuracion import *
 from ranking import *
+from terminado import *
 from constantes import *
 
 pygame.init()
@@ -26,7 +27,7 @@ while ejecutando:
     elif ventana_actual == "configuraciones":
         ventana_actual = manejar_ajustes_volumen(pantalla, cola_eventos)
     elif ventana_actual == "terminado":
-        pass
+        ventana_actual = agregar_puesto_ranking(pantalla, cola_eventos)
     elif ventana_actual == "salir":
         ejecutando = False
     
