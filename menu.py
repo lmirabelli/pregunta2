@@ -13,7 +13,7 @@ espaciado = 40
 lista_botones = []
 
 # Crear botones
-for i in range(4):
+for i in range(5):
     boton = {}
     boton["superficie"] = pygame.image.load("./img/opcion_default.png")
     boton["superficie"] = pygame.transform.scale(boton["superficie"], (ancho_boton, alto_boton))  # Escalar imagen
@@ -27,7 +27,7 @@ def mostrar_menu(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event
         if evento.type == pygame.MOUSEBUTTONDOWN:
             for i, boton in enumerate(lista_botones):
                 if boton["rectangulo"].collidepoint(evento.pos):
-                    if i == 3:
+                    if i == 4:
                         retorno = "salir"
                     elif i == 0:
                         retorno = "juego"
@@ -35,6 +35,8 @@ def mostrar_menu(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event
                         retorno = "ranking"
                     elif i == 1:
                         retorno = "configuraciones"
+                    elif i == 3:
+                        retorno = "reglas"
         elif evento.type == pygame.QUIT:
             retorno = "salir"
     
@@ -52,6 +54,7 @@ def mostrar_menu(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event
     mostrar_texto_menu(lista_botones[0]["superficie"], "JUGAR", (ancho_boton // 2 - 30, alto_boton // 2 - 10), fuente_menu, BLANCO)
     mostrar_texto_menu(lista_botones[1]["superficie"], "CONFIGURACION", (ancho_boton // 2 - 80, alto_boton // 2 - 10), fuente_menu, BLANCO)
     mostrar_texto_menu(lista_botones[2]["superficie"], "PUNTUACIONES", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
-    mostrar_texto_menu(lista_botones[3]["superficie"], "SALIR", (ancho_boton // 2 - 20, alto_boton // 2 - 10), fuente_menu, BLANCO)
+    mostrar_texto_menu(lista_botones[4]["superficie"], "SALIR", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
+    mostrar_texto_menu(lista_botones[3]["superficie"], "REGLAS", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
     
     return retorno

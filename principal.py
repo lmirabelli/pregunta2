@@ -6,6 +6,7 @@ from configuracion import *
 from ranking import *
 from terminado import *
 from constantes import *
+from reglas import *
 
 pygame.init()
 reloj = pygame.time.Clock()
@@ -28,10 +29,11 @@ while ejecutando:
         ventana_actual = manejar_ajustes_volumen(pantalla, cola_eventos)
     elif ventana_actual == "terminado":
         ventana_actual = agregar_puesto_ranking(pantalla, cola_eventos)
+    elif ventana_actual == "reglas":
+        ventana_actual = mostrar_reglas(pantalla, cola_eventos)
     elif ventana_actual == "salir":
         ejecutando = False
     
-    print(ventana_actual)
     pygame.display.flip()
     
 

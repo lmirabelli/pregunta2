@@ -22,5 +22,3 @@ def manejar_pantalla_ranking(pantalla: pygame.Surface, cola_eventos: list[pygame
     mostrar_ranking(pantalla, top_10)
     pygame.display.flip()
     return retorno
-
-    pygame.quit()
