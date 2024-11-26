@@ -1,27 +1,11 @@
 import pygame
-import csv
-import os
 import time
 import random
 from constantes import *
+from funciones import *
 
 pygame.init()
 reloj = pygame.time.Clock()
-
-# Cargar preguntas desde CSV
-def cargar_preguntas(ruta):
-    print(os.path.abspath(ruta))
-    preguntas = []
-    with open(ruta, "r", encoding="utf-8") as archivo:
-        lector_csv = csv.DictReader(archivo)
-        for fila in lector_csv:
-            pregunta = {
-                "pregunta": fila["pregunta"],
-                "opciones": [fila["opcion1"], fila["opcion2"], fila["opcion3"], fila["opcion4"]],
-                "respuesta_correcta": fila["respuesta_correcta"],
-            }
-            preguntas.append(pregunta)
-    return preguntas
 
 preguntas = cargar_preguntas("./preguntas.csv")
 pregunta_actual = 0
@@ -32,6 +16,8 @@ vidas = 3
 inicio_tiempo = time.time()
 boton_pasar_usado = False
 contador_bonus = 0
+contador = 0
+contador_consecutivo = 0
 
 # Función para mostrar texto
 def mostrar_texto(texto, x, y, color=BLANCO, fuente=fuente):
@@ -47,37 +33,29 @@ def mostrar_pregunta_con_imagen(texto, x, y, color_texto=BLANCO):
 def mezclar_lista(lista_preguntas):
     random.shuffle(lista_preguntas)
 
-# Bucle principal
-ejecutando = True
 mezclar_lista(preguntas)
-contador = 0
-bandera_click = False
-contador_consecutivo = 0
-while ejecutando:
+
+def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event]) -> str:
+    global pregunta_actual, opcion_seleccionada, mostrar_respuestas, puntaje, vidas, inicio_tiempo, boton_pasar_usado, contador_bonus, contador_consecutivo, bandera_contador, contador
+
     contador += 1
-    pygame.event.clear(pygame.MOUSEBUTTONDOWN) 
-    reloj.tick(30)
     tiempo_actual = 45 - int(time.time() - inicio_tiempo)
     if tiempo_actual <= 0:
         if not mostrar_respuestas:
-        # Si el tiempo llegó a 0 y aún no se han mostrado las respuestas:
-            vidas -= 1  # Se pierde una vida
+            vidas -= 1
             mostrar_respuestas = True
         else:
-        # Pasar a la siguiente pregunta
             mostrar_respuestas = False
             opcion_seleccionada = None
             pregunta_actual += 1
-            inicio_tiempo = time.time()  # Reinicia el temporizador
+            inicio_tiempo = time.time()
 
-        # Si ya no hay más preguntas, regresar al menú
         if pregunta_actual >= len(preguntas):
-            estado_actual = "menu"
-            inicio_tiempo = None  # Detener el tiempo
+            return "menu"
 
-    for evento in pygame.event.get():
+    for evento in cola_eventos:
         if evento.type == pygame.QUIT:
-            ejecutando = False
+            return "salir"
         elif evento.type == pygame.MOUSEBUTTONDOWN and not mostrar_respuestas:
             x, y = evento.pos
             bandera_contador = contador
@@ -101,14 +79,12 @@ while ejecutando:
                         sonido_vida.play()
                         contador_consecutivo = 0
                     if contador_consecutivo >= 7:
-                        #TENEMOS QUE BUSCAR UN SONIDO QUE NOS HAGA IDENTIFICAR QUE TENEMOS UN BONUX X2
                         bonus_sound.play()
                         puntaje += 25 * 2
-                        contador_bonus += 1 
+                        contador_bonus += 1
                     if contador_bonus == 3:
                         contador_bonus = 0
-                        #--------------------------ESTO SERIA BOTON SKIP
-                if not boton_pasar_usado and 720 <= x <= 920 and 90 <= y <= 140: #PASAR GDB
+                if not boton_pasar_usado and 720 <= x <= 920 and 90 <= y <= 140:  # PASAR GDB
                     boton_pasar_usado = True
                     pregunta_actual += 1
                     opcion_seleccionada = None
@@ -119,19 +95,16 @@ while ejecutando:
     pantalla.blit(fondo, (0, 0))
     boton_rect = imagen_opcion_default.get_rect(topleft=(650, 500))
     mostrar_texto(f"Puntaje: {puntaje}", 10, 10)
-    mostrar_texto(f"Vidas: {vidas}", 10, 50)
-
-    
+    mostrar_texto(f"Vidas: {vidas} ({contador_consecutivo})", 10, 50)
     mostrar_texto(f"{tiempo_actual}s", 530, 40, color=BLANCO, fuente=fuente_grande)
+
     if pregunta_actual < len(preguntas):
         pregunta = preguntas[pregunta_actual]["pregunta"]
         opciones = preguntas[pregunta_actual]["opciones"]
         respuesta_correcta = preguntas[pregunta_actual]["respuesta_correcta"]
 
-        # Mostrar pregunta con imagen de fondo
         mostrar_pregunta_con_imagen(pregunta, 222, 150)
 
-        # Mostrar opciones con texturas
         for i, opcion in enumerate(opciones):
             if mostrar_respuestas:
                 if opcion == respuesta_correcta:
@@ -143,15 +116,12 @@ while ejecutando:
             else:
                 pantalla.blit(imagen_opcion_default, (220, 350 + i * 100))
             mostrar_texto(opcion, 235, 365 + i * 100, BLANCO)
-        
+
         if boton_pasar_usado:
             pantalla.blit(imagen_boton_skip_incorrecta, (720, 90))
         else:
             pantalla.blit(imagen_boton_skip_default, (720, 90))
         mostrar_texto("Pasar turno", 760, 103, BLANCO)
-
-
-
 
     if mostrar_respuestas and contador == (bandera_contador + 10):
         pygame.time.delay(1000)
@@ -160,7 +130,8 @@ while ejecutando:
         pregunta_actual += 1
         inicio_tiempo = time.time()
         if pregunta_actual >= len(preguntas):
-            ejecutando = False
-    pygame.display.flip()
+            return "menu"
 
-pygame.quit()
+    pygame.display.flip()
+    return "juego"
+
