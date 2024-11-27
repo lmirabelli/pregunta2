@@ -2,7 +2,6 @@ import pygame
 import json
 from constantes import *
 from funciones import *
-from juego_original import puntaje
 
 pygame.init()
 
@@ -24,13 +23,16 @@ mensaje = ''
 
 def agregar_puesto_ranking(pantalla, cola_eventos):
     global texto_nombre, mensaje
+
+    with open(ranking_file, "r") as archivo:
+        ranking = json.load(archivo)
     
     # Dibujar fondo
     pantalla.fill(BLANCO)
     pantalla.blit(fondo_ranking, (0, 0))
     
     # Mostrar puntaje actual
-    texto_puntaje = fuente.render(f"Puntaje: {puntaje}", True, NEGRO)
+    texto_puntaje = fuente.render(f"Puntaje: {ranking[-1]["puntos"]}", True, NEGRO)
     pantalla.blit(texto_puntaje, (440, 200))
     
     # Mostrar input box
@@ -52,7 +54,7 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
     for evento in cola_eventos:
         if evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_RETURN:
-                mensaje = guardar_puntaje(texto_nombre, puntaje)
+                mensaje = guardar_puntaje(texto_nombre)
             elif evento.key == pygame.K_BACKSPACE:
                 texto_nombre = texto_nombre[:-1]
             else:
@@ -60,7 +62,7 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
 
         if evento.type == pygame.MOUSEBUTTONDOWN:
             if boton_guardar.collidepoint(evento.pos):
-                mensaje = guardar_puntaje(texto_nombre, puntaje)
+                mensaje = guardar_puntaje(texto_nombre)
     
     pygame.display.flip()
     if mensaje == "¡Puntaje guardado!":
@@ -68,21 +70,17 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
     else:
         return "terminado"  # Retorna al menú de ranking si es necesario.
 
-def guardar_puntaje(nombre, puntaje):
+def guardar_puntaje(nombre):
     if not nombre.strip():
         return "Ingresa un nombre válido."
-    
-    nuevo_puesto = {"jugador": nombre.strip(), "puntos": puntaje}
-    
-    try:
-        with open(ranking_file, "r") as archivo:
-            ranking = json.load(archivo)
-    except FileNotFoundError:
-        ranking = []
+    nombre = nombre.strip()
+    with open(ranking_file, "r") as archivo:
+        ranking = json.load(archivo)
 
-    ranking.append(nuevo_puesto)
+    ranking[-1]["jugador"] = nombre
+    ranking[-1]["puntos"] = ranking[-1]["puntos"]
     
     with open(ranking_file, "w") as archivo:
         json.dump(ranking, archivo, indent=4)
-    
+
     return "¡Puntaje guardado!"

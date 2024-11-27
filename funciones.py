@@ -25,6 +25,28 @@ def mostrar_texto_menu(surface, text, pos, font, color=pygame.Color('black')):
         y += word_height
 
 # PANTALLA DE JUEGO ----------------------------------------------------------------------------- 
+def texto_con_borde(
+    pantalla: pygame.Surface,
+    texto: str,
+    fuente: pygame.font.Font,
+    color_texto: tuple,
+    color_borde: tuple,
+    posicion: tuple,
+    ancho_borde: int = 2
+):
+    # Renderizar el texto
+    superficie_texto = fuente.render(texto, True, color_texto)
+    superficie_borde = fuente.render(texto, True, color_borde)
+
+    # Dibujar el texto del borde desplazado en las 8 direcciones cardinales
+    x, y = posicion
+    for dx in [-ancho_borde, 0, ancho_borde]:
+        for dy in [-ancho_borde, 0, ancho_borde]:
+            if dx != 0 or dy != 0:  # Evitar el centro
+                pantalla.blit(superficie_borde, (x + dx, y + dy))
+
+    # Dibujar el texto principal
+    pantalla.blit(superficie_texto, (x, y))
 
 def cargar_preguntas(ruta):
     print(os.path.abspath(ruta))
@@ -40,12 +62,12 @@ def cargar_preguntas(ruta):
             preguntas.append(pregunta)
     return preguntas
 
+
 def mostrar_texto(texto, x, y, color=BLANCO, fuente=fuente):
     superficie = fuente.render(texto, True, color)
     pantalla.blit(superficie, (x, y))
 
-# dividir texto en líneas
-def ajustar_texto(texto, fuente, ancho_max):
+def ajustar_texto(texto, fuente, ancho_max, alto_max):
     palabras = texto.split(" ")
     lineas = []
     linea_actual = ""
@@ -63,25 +85,29 @@ def ajustar_texto(texto, fuente, ancho_max):
     if linea_actual:
         lineas.append(linea_actual.strip())
     
+    # Verificar que las líneas no se desborden verticalmente
+    total_altura = len(lineas) * fuente.get_height() + (len(lineas) - 1) * 10  # Ajuste de espacio entre líneas
+    if total_altura > alto_max:
+        lineas = lineas[:int(alto_max / (fuente.get_height() + 10))]  # Recortar las líneas si el texto excede el área
     return lineas
 
-# Mostrar pregunta con fondo de imagen y texto ajustado
-def mostrar_pregunta_con_imagen(texto, x, y, color_texto=BLANCO, ancho_max=580):
-    lineas = ajustar_texto(texto, fuente, ancho_max)
+def mostrar_pregunta_con_imagen(texto, x, y, color_texto=BLANCO, ancho_max=580, alto_max=350):
+    # Ajustar texto según el tamaño máximo disponible
+    lineas = ajustar_texto(texto, fuente_pequeña, ancho_max, alto_max)
     espacio_entre_lineas = 30  # Espaciado entre líneas
     
-    # Calcular altura total del texto
-    altura_total = len(lineas) * fuente.get_height() + (len(lineas) - 1) * espacio_entre_lineas
+    # Calcular altura total del texto ajustado
+    altura_total = len(lineas) * fuente_pequeña.get_height() + (len(lineas) - 1) * espacio_entre_lineas
 
     # Calcular posición inicial para centrar el texto en el rectángulo
-    y_inicial = y + (fondo_pregunta.get_height() - altura_total) // 2
+    y_inicial = y + (alto_max - altura_total) // 2  # Se asegura de que no se desborde
 
-    # Dibujar el fondo
+    # Dibujar el fondo de la pregunta
     pantalla.blit(fondo_pregunta, (x, y))
 
-    # Dibujar cada línea de texto
+    # Dibujar cada línea de texto ajustado
     for i, linea in enumerate(lineas):
-        mostrar_texto(linea, x + 20, y_inicial + i * (fuente.get_height() + espacio_entre_lineas), color=color_texto)
+        mostrar_texto(linea, x + 20, y_inicial + i * (fuente_pequeña.get_height() + espacio_entre_lineas), color=color_texto)
 
 # Mezclar preguntas
 def mezclar_lista(lista_preguntas):
@@ -95,20 +121,20 @@ def ajustar_volumen(sonido, volumen):
 
 def dibujar_botones_volumen(pantalla):
     # Dibujar imagen de fondo para botones de volumen música
-    pantalla.blit(imagen_boton, (300, 250))
+    pantalla.blit(imagen_boton, (340, 250))
     mostrar_texto(pantalla, "-", (boton_bajar_volumen_musica.centerx, boton_bajar_volumen_musica.centery), fuente_pequeña, BLANCO)
     mostrar_texto(pantalla, "+", (boton_subir_volumen_musica.centerx, boton_subir_volumen_musica.centery), fuente_pequeña, BLANCO)
     mostrar_texto(pantalla, "VOLUMEN MUSICA", (boton_volumen_musica.centerx, boton_volumen_musica.centery), fuente, BLANCO)
 
     # Dibujar imagen de fondo para botones de volumen sonido
-    pantalla.blit(imagen_boton, (300, 500))
+    pantalla.blit(imagen_boton, (340, 500))
     mostrar_texto(pantalla, "-", (boton_bajar_volumen_sonido.centerx, boton_bajar_volumen_sonido.centery), fuente_pequeña, BLANCO)
     mostrar_texto(pantalla, "+", (boton_subir_volumen_sonido.centerx, boton_subir_volumen_sonido.centery), fuente_pequeña, BLANCO)
     mostrar_texto(pantalla, "VOLUMEN SONIDO", (boton_volumen_sonido.centerx, boton_volumen_sonido.centery), fuente, BLANCO)
 
 def dibujar_boton_volver_menu(pantalla):
     pantalla.blit(imagen_volver_menu, boton_volver_menu_rect.topleft)
-    mostrar_texto(pantalla, "VOLVER AL MENU PRINCIPAL", (boton_volver_menu_rect.centerx, boton_volver_menu_rect.centery), fuente, BLANCO)
+    mostrar_texto(pantalla, "VOLVER AL MENU PRINCIPAL", (520,675), fuente_grande_configuraciones, BLANCO)
 
 def mostrar_texto(superficie, texto, posicion, fuente, color):
     texto_superficie = fuente.render(texto, True, color)
@@ -173,7 +199,25 @@ def mostrar_ranking(pantalla, top_10):
 
     # Escalar y dibujar el fondo para el mensaje
     fondo_mensaje = pygame.transform.scale(pygame.image.load("./img/opcion_incorrecta.png"), (mensaje_rect.width + 80, mensaje_rect.height + 10))
-    pantalla.blit(fondo_mensaje, (mensaje_rect.x - 10, mensaje_rect.y - 5))
+    pantalla.blit(fondo_mensaje, (mensaje_rect.x - 45, mensaje_rect.y - 5))
 
     # Dibujar el texto del mensaje
     pantalla.blit(mensaje_render, mensaje_rect)
+
+# Función para mostrar texto
+
+def mostrar_texto_vidas(texto, x, y, color=BLANCO, fuente=fuente_juego):
+    superficie = fuente.render(texto, True, color)
+    pantalla.blit(superficie, (x, y))
+
+def mostrar_pregunta_con_imagen(texto, x, y, color_texto=BLANCO):
+    pantalla.blit(fondo_pregunta, (x-100, y))
+    if len(texto) > 55:
+        texto_con_borde(pantalla,texto,fuente_preguntas,NEGRO,BLANCO,(x - 90, y + 37),ancho_borde=2) # CAMBIAR DE POSICION LA PREGUNTA 
+    else:
+        texto_con_borde(pantalla,texto,fuente_preguntas,NEGRO,BLANCO,(x + 110, y + 37),ancho_borde=2) # CAMBIAR DE POSICION LA PREGUNTA 
+
+
+# Mezclar preguntas
+def mezclar_lista(lista_preguntas):
+    random.shuffle(lista_preguntas)

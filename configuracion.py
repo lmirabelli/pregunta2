@@ -1,3 +1,4 @@
+
 import pygame
 from constantes import *
 from funciones import *
@@ -39,13 +40,13 @@ def manejar_ajustes_volumen(pantalla, cola_eventos):
                 return "menu"
 
     pantalla.blit(fondo_configuracion, (0, 0))
-    mostrar_texto(pantalla, "AJUSTES DE VOLUMENES", (ANCHO//2, 70), fuente_grande, BLANCO)
+    texto_con_borde(pantalla, "AJUSTES DE VOLUMENES",fuente_grande_configuraciones,NEGRO,BLANCO, (350,10),ancho_borde=2)
     dibujar_botones_volumen(pantalla)
     dibujar_boton_volver_menu(pantalla)
     # Dibujar las barras de volumen
-    dibujar_barra_volumen(pantalla, 350, 320, pygame.mixer.music.get_volume())
-    dibujar_barra_volumen(pantalla, 350, 570, sonido_cash.get_volume())
+    dibujar_barra_volumen(pantalla, 430, 320, pygame.mixer.music.get_volume()) # BARRA VOLUMEN ARRIBA
+    dibujar_barra_volumen(pantalla, 430, 570, sonido_cash.get_volume()) # BARRA VOLUMEN ABAJO
     
     return "configuraciones"
 
-    pygame.quit()
+

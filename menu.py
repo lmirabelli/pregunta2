@@ -51,10 +51,10 @@ def mostrar_menu(pantalla: pygame.Surface, cola_eventos: list[pygame.event.Event
         pantalla.blit(boton["superficie"], boton["rectangulo"].topleft)
     
     # Dibujar texto en los botones
-    mostrar_texto_menu(lista_botones[0]["superficie"], "JUGAR", (ancho_boton // 2 - 30, alto_boton // 2 - 10), fuente_menu, BLANCO)
-    mostrar_texto_menu(lista_botones[1]["superficie"], "CONFIGURACION", (ancho_boton // 2 - 80, alto_boton // 2 - 10), fuente_menu, BLANCO)
-    mostrar_texto_menu(lista_botones[2]["superficie"], "PUNTUACIONES", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
-    mostrar_texto_menu(lista_botones[4]["superficie"], "SALIR", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
-    mostrar_texto_menu(lista_botones[3]["superficie"], "REGLAS", (ancho_boton // 2 - 70, alto_boton // 2 - 10), fuente_menu, BLANCO)
+    texto_con_borde(pantalla,"JUGAR",fuente_menu,BLANCO,NEGRO, (500,140),ancho_borde=3)
+    texto_con_borde(pantalla,"CONFIGURACION",fuente_menu,BLANCO,NEGRO, (430,240),ancho_borde=3)
+    texto_con_borde(pantalla,"PUNTUACIONES",fuente_menu,BLANCO,NEGRO, (440,340),ancho_borde=3)
+    texto_con_borde(pantalla,"REGLAS",fuente_menu,BLANCO,NEGRO, (490,440),ancho_borde=3)
+    texto_con_borde(pantalla,"SALIR",fuente_menu,BLANCO,NEGRO, (500,540),ancho_borde=3)
     
     return retorno

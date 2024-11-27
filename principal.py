@@ -4,7 +4,7 @@ from menu import *
 from juego_original import *
 from configuracion import *
 from ranking import *
-from terminado import *
+from terminado import agregar_puesto_ranking
 from constantes import *
 from reglas import *
 
