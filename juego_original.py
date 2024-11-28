@@ -46,7 +46,8 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
             inicio_tiempo = time.time()
 
         if pregunta_actual >= len(preguntas):
-            return "menu"
+            mezclar_lista(preguntas)
+            pregunta_actual = 0
 
     for evento in cola_eventos:
         if evento.type == pygame.QUIT:
