@@ -174,7 +174,7 @@ def mostrar_ranking(pantalla, top_10):
         else:
             fuente_usada = fuente_20
 
-        texto = f"{index + 1}. ({jugador['fecha']}) - {jugador['jugador']}: {jugador['puntos']} puntos"
+        texto = f"{index + 1}. ({jugador['fecha']}) - {jugador['jugador']}: ${jugador['puntos']}"
         texto_render = fuente_usada.render(texto, True, BLANCO)
 
         # Centramos el texto en la pantalla

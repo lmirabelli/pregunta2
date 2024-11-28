@@ -38,8 +38,36 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
     if tiempo_actual <= 0:
         if not mostrar_respuestas:
             vidas -= 1
+            puntaje -= 50
             mostrar_respuestas = True
             sonido_error.play()
+            if vidas == 0:
+                fecha_actual = date.today()
+                fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
+                nuevo_puesto = {"jugador": "", "puntos": puntaje, "fecha": fecha_formateada}
+
+                with open(ranking_file, "r") as archivo:
+                        ranking = json.load(archivo)
+
+                ranking.append(nuevo_puesto)
+
+                with open(ranking_file, "w") as archivo:
+                    json.dump(ranking, archivo, indent=4)
+
+                pregunta_actual = 0
+                opcion_seleccionada = None
+                mostrar_respuestas = False
+                puntaje = 0
+                vidas = 3
+                inicio_tiempo = time.time()
+                boton_pasar_usado = False
+                contador_bonus = 0
+                contador = 0
+                contador_consecutivo = 0
+                mezclar_lista(preguntas)
+                iniciado = False
+
+                return "terminado"
         else:
             mostrar_respuestas = False
             opcion_seleccionada = None

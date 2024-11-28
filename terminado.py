@@ -32,7 +32,7 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
     pantalla.blit(fondo_ranking, (0, 0))
     
     # Renderizar el puntaje 
-    texto_puntaje = f"PUNTAJE: {ranking[-1]['puntos']}"
+    texto_puntaje = f"PDINERO ACUMULADO: ${ranking[-1]['puntos']}"
     texto_con_borde(pantalla, texto_puntaje, fuente_grande, BLANCO, NEGRO, (400, 200), ancho_borde=2)
     
     # Mostrar input box

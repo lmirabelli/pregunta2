@@ -53,5 +53,15 @@
         "jugador": "Leo",
         "puntos": 540,
         "fecha": "28/11/2024"
+    },
+    {
+        "jugador": "leo",
+        "puntos": -75,
+        "fecha": "28/11/2024"
+    },
+    {
+        "jugador": "b",
+        "puntos": -75,
+        "fecha": "28/11/2024"
     }
 ]
