@@ -48,5 +48,10 @@
         "jugador": "Lenny Lenard",
         "puntos": 310,
         "fecha": "01/01/2000"
+    },
+    {
+        "jugador": "Leo",
+        "puntos": 540,
+        "fecha": "28/11/2024"
     }
 ]

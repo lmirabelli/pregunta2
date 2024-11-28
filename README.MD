@@ -1,6 +1,6 @@
 # **PREGUNTADOS**
 #### EL EQUIPO DEL CANAL CULTURAL
-![El Equipo del canal cultural](https://i.ibb.co/rtnb78R/el-equipo-del-canal-cultural.png) {width=400px}
+![El Equipo del canal cultural](https://i.ibb.co/rtnb78R/el-equipo-del-canal-cultural.png)
 
 ## **SEPARACION DE TAREAS**
 

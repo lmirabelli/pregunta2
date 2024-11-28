@@ -31,9 +31,9 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
     pantalla.fill(BLANCO)
     pantalla.blit(fondo_ranking, (0, 0))
     
-    # Mostrar puntaje actual
-    texto_puntaje = fuente.render(f"Puntaje: {ranking[-1]["puntos"]}", True, NEGRO)
-    pantalla.blit(texto_puntaje, (440, 200))
+    # Renderizar el puntaje 
+    texto_puntaje = f"PUNTAJE: {ranking[-1]['puntos']}"
+    texto_con_borde(pantalla, texto_puntaje, fuente_grande, BLANCO, NEGRO, (400, 200), ancho_borde=2)
     
     # Mostrar input box
     pygame.draw.rect(pantalla, NEGRO, input_box, 2)
@@ -42,8 +42,8 @@ def agregar_puesto_ranking(pantalla, cola_eventos):
     
     # Mostrar botón guardar
     pygame.draw.rect(pantalla, NEGRO, boton_guardar)
-    texto_boton = fuente.render("Guardar puntaje", True, BLANCO)
-    pantalla.blit(texto_boton, (boton_guardar.x + 20, boton_guardar.y + 10))
+    texto_boton = "GUARDAR PUNTAJE"
+    texto_con_borde(pantalla, texto_boton, fuente_pequeña, BLANCO, NEGRO, (boton_guardar.x + 15, boton_guardar.y + 15), ancho_borde=2)
     
     # Mostrar mensaje
     if mensaje:
