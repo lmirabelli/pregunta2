@@ -18,7 +18,8 @@ boton_pasar_usado = False
 contador_bonus = 0
 contador = 0
 contador_consecutivo = 0
-iniciado = False    
+iniciado = False   
+bandera_contador = 0
 
 
 mezclar_lista(preguntas)
@@ -156,7 +157,8 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
         pregunta_actual += 1
         inicio_tiempo = time.time()
         if pregunta_actual >= len(preguntas):
-            return "menu"
+            mezclar_lista(preguntas)
+            pregunta_actual = 0
     
 
     pygame.display.flip()
