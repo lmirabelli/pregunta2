@@ -1,66 +1,52 @@
 [
     {
         "jugador": "Simour Skinner",
-        "puntos": 800
+        "puntos": 800,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Homero Simpson",
-        "puntos": -125
+        "puntos": -125,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Martin Prince",
-        "puntos": 550
+        "puntos": 550,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Bart Simpson",
-        "puntos": 50
+        "puntos": 50,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Ned Flanders",
-        "puntos": 130
+        "puntos": 130,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Lisa Simpsons",
-        "puntos": 620
+        "puntos": 620,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Rod Flanders",
-        "puntos": 300
+        "puntos": 300,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Karl Karlsson",
-        "puntos": 420
+        "puntos": 420,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Moe Szyslak",
-        "puntos": 30
+        "puntos": 30,
+        "fecha": "01/01/2000"
     },
     {
         "jugador": "Lenny Lenard",
-        "puntos": 310
-    },
-    {
-        "jugador": "lalala",
-        "puntos": 0
-    },
-    {
-        "jugador": "cxz",
-        "puntos": 555
-    },
-    {
-        "jugador": "leo",
-        "puntos": -32
-    },
-    {
-        "jugador": "fr",
-        "puntos": -30
-    },
-    {
-        "jugador": "gt",
-        "puntos": -31
-    },
-    {
-        "jugador": "vfd",
-        "puntos": 555
+        "puntos": 310,
+        "fecha": "01/01/2000"
     }
 ]

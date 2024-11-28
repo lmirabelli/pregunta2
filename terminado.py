@@ -19,10 +19,10 @@ fuente = pygame.font.Font(None, 36)
 input_box = pygame.Rect(440, 300, 200, 50)
 boton_guardar = pygame.Rect(440, 400, 200, 50)
 texto_nombre = ''
-mensaje = ''
 
 def agregar_puesto_ranking(pantalla, cola_eventos):
-    global texto_nombre, mensaje
+    global texto_nombre
+    mensaje = ''
 
     with open(ranking_file, "r") as archivo:
         ranking = json.load(archivo)
@@ -79,6 +79,7 @@ def guardar_puntaje(nombre):
 
     ranking[-1]["jugador"] = nombre
     ranking[-1]["puntos"] = ranking[-1]["puntos"]
+    ranking[-1]["fecha"] = ranking[-1]["fecha"]
     
     with open(ranking_file, "w") as archivo:
         json.dump(ranking, archivo, indent=4)

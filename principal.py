@@ -35,6 +35,6 @@ while ejecutando:
         ejecutando = False
     
     pygame.display.flip()
-    
+    print(ventana_actual)
 
 pygame.quit()

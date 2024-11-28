@@ -28,10 +28,10 @@ fuente_pequeña = pygame.font.SysFont("Cinzel", 25)
 fuente_menu = pygame.font.SysFont("Tilt Warp Regular", 30)
 fuente_preguntas = pygame.font.SysFont ("Poetsen One", 20)
 fuente_respuestas = pygame.font.SysFont ("Poetsen One", 20)
-fuente_30 = pygame.font.Font(None, 30)
-fuente_25 = pygame.font.Font(None, 25)
-fuente_22 = pygame.font.Font(None, 22)
-fuente_20 = pygame.font.Font(None, 20)
+fuente_30 = pygame.font.SysFont("Poetsen One", 30)
+fuente_25 = pygame.font.SysFont("Poetsen One", 25)
+fuente_22 = pygame.font.SysFont("Poetsen One", 22)
+fuente_20 = pygame.font.SysFont("Poetsen One", 20)
 
 # SONIDOS
 bonus_sound = pygame.mixer.Sound("./sound/bonus_sound.mp3") #PASAR GDB

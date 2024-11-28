@@ -1,6 +1,6 @@
 import pygame
 import time
-import random
+from datetime import date
 from constantes import *
 from funciones import *
 
@@ -38,6 +38,7 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
         if not mostrar_respuestas:
             vidas -= 1
             mostrar_respuestas = True
+            sonido_error.play()
         else:
             mostrar_respuestas = False
             opcion_seleccionada = None
@@ -69,6 +70,7 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
                         puntaje -= 25
                         vidas -= 1
                         contador_consecutivo = 0
+                        contador_bonus = 0
                     if contador_consecutivo == 5:
                         vidas += 1
                         sonido_vida.play()
@@ -85,8 +87,9 @@ def manejar_pantalla_juego(pantalla: pygame.Surface, cola_eventos: list[pygame.e
                     mostrar_respuestas = False
                     boton_skip.play()
                 if vidas < 1:
-
-                    nuevo_puesto = {"jugador": 0, "puntos": puntaje}
+                    fecha_actual = date.today()
+                    fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
+                    nuevo_puesto = {"jugador": "", "puntos": puntaje, "fecha": fecha_formateada}
 
                     with open(ranking_file, "r") as archivo:
                         ranking = json.load(archivo)
